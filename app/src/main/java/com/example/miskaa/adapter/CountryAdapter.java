@@ -1,6 +1,7 @@
 package com.example.miskaa.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -8,8 +9,10 @@ import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.miskaa.Country;
+import com.bumptech.glide.Glide;
+import com.example.miskaa.table.Country;
 import com.example.miskaa.databinding.RvCountryBinding;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +51,11 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.ViewHold
     }
 
     private void populate(Country country) {
+
+      //todo load image to image view
+      Log.i("--flag url--",country.getFlag());
+      Glide.with(context).load("https://restcountries.eu/data/afg.svg").into(binding.ivFlag);
+      //Picasso.get().load(country.getFlag()).into(binding.ivFlag);
 
       binding.tvName.setText(country.getName());
       binding.tvCapital.setText(country.getCapital());

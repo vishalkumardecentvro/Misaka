@@ -1,4 +1,4 @@
-package com.example.miskaa;
+package com.example.miskaa.table;
 
 import java.util.List;
 
