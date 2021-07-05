@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/TaskCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp">
+
+    <LinearLayout
+      android:id="@+id/llCard"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+      <LinearLayout
+        android:id="@+id/llCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_header"
+        android:orientation="horizontal">
+
+        <TextView
+          android:id="@+id/tvName"
+          android:layout_width="0dp"
+          android:layout_height="50dp"
+          android:padding="10dp"
+          android:layout_weight="1"
+          android:fontFamily="@font/reggae_one_regular"
+          android:text="India"
+          android:textColor="@color/white"
+          android:textSize="20sp" />
+
+        <ImageView
+          android:id="@+id/ivFlag"
+          android:layout_width="75dp"
+          android:layout_height="50dp"
+          android:padding="5dp"
+          android:src="@drawable/nointernet" />
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="100"
+        android:orientation="horizontal">
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_weight="50"
+          android:orientation="vertical">
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/amita_bold"
+            android:padding="10dp"
+            android:text="Capital"
+            android:textColor="#00AC61"
+            android:textSize="12sp" />
+
+          <TextView
+            android:id="@+id/tvCapital"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif"
+            android:padding="10dp"
+            android:text="capital"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/amita_bold"
+            android:padding="10dp"
+            android:text="Region"
+            android:textColor="#00AC61"
+            android:textSize="12sp" />
+
+          <TextView
+
+            android:id="@+id/tvRegion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif"
+            android:padding="10dp"
+            android:text="region"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/amita_bold"
+            android:padding="10dp"
+            android:text="borders"
+            android:textColor="#00AC61"
+            android:textSize="12sp" />
+
+          <Spinner
+            android:id="@+id/spinnerBorder"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:spinnerMode="dropdown"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_weight="50"
+          android:orientation="vertical">
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/amita_bold"
+            android:padding="10dp"
+            android:text="Subregion"
+            android:textColor="#00AC61"
+            android:textSize="12sp" />
+
+          <TextView
+
+            android:id="@+id/tvSubregion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif"
+            android:padding="10dp"
+            android:text="subregion"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/amita_bold"
+            android:padding="10dp"
+            android:text="Population"
+            android:textColor="#00AC61"
+            android:textSize="12sp" />
+
+          <TextView
+            android:id="@+id/tvPopulation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif"
+            android:padding="10dp"
+            android:text="population"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/amita_bold"
+            android:padding="10dp"
+            android:text="Language"
+            android:textColor="#00AC61"
+            android:textSize="12sp" />
+
+          <Spinner
+            android:id="@+id/spinnerLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:spinnerMode="dropdown"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+
+  </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

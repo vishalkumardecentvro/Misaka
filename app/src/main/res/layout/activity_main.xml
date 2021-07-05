@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:padding="10dp"
+  android:orientation="vertical"
+  tools:context=".MainActivity">
+
+  <Button
+    android:id="@+id/deleteDataButton"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:padding="10dp"
+    android:visibility="gone"
+    android:text="Clear data"/>
+
+  <ImageView
+    android:id="@+id/oflineImage"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:padding="20dp"
+    android:src="@drawable/nointernet"
+    android:visibility="gone" />
+
+  <Button
+    android:id="@+id/offlineButton"
+    android:layout_width="175dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:padding="10dp"
+    android:text="Load data offline"
+    android:visibility="gone" />
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/countriesRecyclerView"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    app:reverseLayout="false"
+    android:layout_height="match_parent">
+
+  </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>
