@@ -11,8 +11,10 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.miskaa.Connection;
 import com.example.miskaa.adapter.CountryAdapter;
 import com.example.miskaa.databinding.ActivityMainBinding;
+import com.example.miskaa.room.entity.BordersEntity;
 import com.example.miskaa.room.entity.CountryEntity;
 import com.example.miskaa.room.entity.LanguageEntity;
+import com.example.miskaa.room.view.BorderView;
 import com.example.miskaa.room.view.CountryView;
 import com.example.miskaa.room.view.LanguageView;
 import com.example.miskaa.table.Country;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
   private CountryAdapter countryAdapter;
   private CountryView countryView;
   private LanguageView languageView;
+  private BorderView borderView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
   private void instantiate() {
     countryView = ViewModelProviders.of(this).get(CountryView.class);
     languageView = ViewModelProviders.of(this).get(LanguageView.class);
+    borderView = ViewModelProviders.of(this).get(BorderView.class);
 
     countryAdapter = new CountryAdapter(this);
   }
@@ -84,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
   private void storeDataInRoom(List<Country> countryList) {
     for (Country country : countryList) {
       storeCountryBasicInformation(country);
-      storeCountryLanguage(country.getLanguages(), country.getName());
     }
   }
 
@@ -97,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
     countryEntity.setPopulation(country.getPopulation());
     countryEntity.setRegion(country.getRegion());
     countryEntity.setSubregion(country.getSubregion());
+    storeCountryLanguage(country.getLanguages(), country.getName());
+    storeCountryBorders(country.getBorders(), country.getName());
 
     countryView.insert(countryEntity);
   }
@@ -113,7 +118,16 @@ public class MainActivity extends AppCompatActivity {
 
       languageView.insert(countryLanguage);
     }
+  }
 
+  private void storeCountryBorders(List<String> bordersList, String countryName) {
+    BordersEntity bordersEntity = new BordersEntity();
+    for (String borderName : bordersList) {
+      bordersEntity.setCountryName(countryName);
+      bordersEntity.setBorderName(borderName);
+
+      borderView.insert(bordersEntity);
+    }
 
   }
 }

@@ -7,14 +7,9 @@ import androidx.room.PrimaryKey;
 public class BordersEntity {
 
   String borderName;
-  private  int countryId;
+  private String countryName;
   @PrimaryKey(autoGenerate = true)
   private int id;
-
-  public BordersEntity(String borderName, int countryId) {
-    this.borderName = borderName;
-    this.countryId = countryId;
-  }
 
   public String getBorderName() {
     return borderName;
@@ -24,12 +19,12 @@ public class BordersEntity {
     this.borderName = borderName;
   }
 
-  public int getCountryId() {
-    return countryId;
+  public String getCountryName() {
+    return countryName;
   }
 
-  public void setCountryId(int countryId) {
-    this.countryId = countryId;
+  public void setCountryName(String countryName) {
+    this.countryName = countryName;
   }
 
   public int getId() {

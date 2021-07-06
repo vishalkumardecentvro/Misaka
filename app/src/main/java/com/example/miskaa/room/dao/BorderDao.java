@@ -13,7 +13,7 @@ import java.util.List;
 public interface BorderDao {
 
     @Insert
-    void insertBorderInfo (BordersEntity countryBorders);
+    void insertCountryBorders(BordersEntity countryBorders);
 
     @Query("DELETE FROM borders")
     void deleteAllBorders();
