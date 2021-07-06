@@ -45,7 +45,7 @@ public class CountryRepository {
 
         @Override
         protected Void doInBackground(CountryEntity... countryInformation) {
-            countryDao.insertInformation(countryInformation[0]);
+            countryDao.insertCountryBasicInformation(countryInformation[0]);
             return null;
         }
     }

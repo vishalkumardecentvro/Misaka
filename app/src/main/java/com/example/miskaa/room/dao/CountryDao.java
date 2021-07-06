@@ -13,7 +13,7 @@ import java.util.List;
 public interface CountryDao {
 
     @Insert
-    void insertInformation (CountryEntity country);
+    void insertCountryBasicInformation(CountryEntity country);
 
     @Query("DELETE FROM country")
     void deleteAllCountries();
