@@ -70,9 +70,6 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.ViewHold
 
       for (Country.Language lang : country.getLanguages()) {
         languageArrayList.add(lang.getName());
-        languageArrayList.add(lang.getNativeName());
-        languageArrayList.add(lang.getIso639_1());
-        languageArrayList.add(lang.getIso639_2());
       }
 
       ArrayAdapter<String> languageAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, languageArrayList);

@@ -1,10 +1,15 @@
 package com.example.miskaa.table;
 
+import androidx.room.PrimaryKey;
+
 import java.util.List;
 
 public class Country {
 
   private String name, capital, flag, region, subregion, population;
+
+  @PrimaryKey(autoGenerate = true)
+  private int id;
 
   private List<String> borders;
   private List<Language> languages;
@@ -73,9 +78,13 @@ public class Country {
     this.languages = languages;
   }
 
-  public class Language {
+  public int getId() {
+    return id;
+  }
 
-    private String name, nativeName, iso639_1, iso639_2;
+  public static class Language {
+
+    private String name;
 
     public String getName() {
       return name;
@@ -83,30 +92,6 @@ public class Country {
 
     public void setName(String name) {
       this.name = name;
-    }
-
-    public String getNativeName() {
-      return nativeName;
-    }
-
-    public void setNativeName(String nativeName) {
-      this.nativeName = nativeName;
-    }
-
-    public String getIso639_1() {
-      return iso639_1;
-    }
-
-    public void setIso639_1(String iso639_1) {
-      this.iso639_1 = iso639_1;
-    }
-
-    public String getIso639_2() {
-      return iso639_2;
-    }
-
-    public void setIso639_2(String iso639_2) {
-      this.iso639_2 = iso639_2;
     }
   }
 }

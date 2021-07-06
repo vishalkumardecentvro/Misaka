@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.miskaa.CountryDatabase;
+import com.example.miskaa.Database;
 import com.example.miskaa.room.dao.CountryDao;
 import com.example.miskaa.room.entity.CountryEntity;
 
@@ -17,8 +17,8 @@ public class CountryRepository {
     private LiveData<List<CountryEntity>> countryInformation;
 
     public CountryRepository(Application application) {
-        CountryDatabase countryDatabase = CountryDatabase.getDatabase(application);
-        this.countryDao = countryDatabase.countryDao();
+        Database database = Database.getDatabase(application);
+        this.countryDao = database.countryDao();
         this.countryInformation = countryDao.getAllCountry();
     }
 

@@ -16,11 +16,8 @@ public interface LanguageDao {
     void insertLanguages (LanguageEntity countryLanguageEntity);
 
     @Query("DELETE FROM language")
-    void deleteAllNotes();
+    void deleteAllLanguages();
 
     @Query("SELECT * FROM language")
     LiveData<List<LanguageEntity>> getAllLanguagesInfo();
-
-//    @Query("select id,iso639_1,iso639_2,name,nativeName from language where "+" name = :country_name ")
-//    LiveData<List<LanguageEntity>> getLanguageByCountryName(String country_name);
 }

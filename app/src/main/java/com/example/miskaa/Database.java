@@ -13,18 +13,18 @@ import com.example.miskaa.room.dao.CountryDao;
 import com.example.miskaa.room.dao.LanguageDao;
 
 @androidx.room.Database(entities = {CountryEntity.class, LanguageEntity.class, BordersEntity.class}, version = 1,exportSchema = false)
-public abstract class CountryDatabase extends RoomDatabase {
+public abstract class Database extends RoomDatabase {
 
-  public static CountryDatabase countryDatabaseInstance;
+  public static Database databaseInstance;
 
-  public static synchronized CountryDatabase getDatabase(Context context) {
-    if (countryDatabaseInstance == null) {
+  public static synchronized Database getDatabase(Context context) {
+    if (databaseInstance == null) {
 
-      countryDatabaseInstance = Room.databaseBuilder(context.getApplicationContext(), CountryDatabase.class, "Country_Database")
+      databaseInstance = Room.databaseBuilder(context.getApplicationContext(), Database.class, "Country_Database")
               .fallbackToDestructiveMigrationFrom()
               .build();
     }
-    return countryDatabaseInstance;
+    return databaseInstance;
   }
 
   public abstract CountryDao countryDao();

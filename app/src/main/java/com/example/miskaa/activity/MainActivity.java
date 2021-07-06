@@ -1,6 +1,7 @@
 package com.example.miskaa.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -11,7 +12,9 @@ import com.example.miskaa.Connection;
 import com.example.miskaa.adapter.CountryAdapter;
 import com.example.miskaa.databinding.ActivityMainBinding;
 import com.example.miskaa.room.entity.CountryEntity;
+import com.example.miskaa.room.entity.LanguageEntity;
 import com.example.miskaa.room.view.CountryView;
+import com.example.miskaa.room.view.LanguageView;
 import com.example.miskaa.table.Country;
 
 import java.util.List;
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
   private ActivityMainBinding binding;
   private CountryAdapter countryAdapter;
   private CountryView countryView;
+  private LanguageView languageView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
   private void instantiate() {
     countryView = ViewModelProviders.of(this).get(CountryView.class);
+    languageView = ViewModelProviders.of(this).get(LanguageView.class);
+
     countryAdapter = new CountryAdapter(this);
   }
 
@@ -77,17 +83,37 @@ public class MainActivity extends AppCompatActivity {
 
   private void storeDataInRoom(List<Country> countryList) {
     for (Country country : countryList) {
-
-      CountryEntity countryEntity = new CountryEntity();
-
-      countryEntity.setName(country.getName());
-      countryEntity.setCapital(country.getCapital());
-      countryEntity.setFlag(country.getFlag());
-      countryEntity.setPopulation(country.getPopulation());
-      countryEntity.setRegion(country.getRegion());
-      countryEntity.setSubregion(country.getSubregion());
-
-      countryView.insert(countryEntity);
+      storeCountryBasicInformation(country);
+      storeCountryLanguage(country.getLanguages(), country.getName());
     }
+  }
+
+  private void storeCountryBasicInformation(Country country) {
+    CountryEntity countryEntity = new CountryEntity();
+
+    countryEntity.setName(country.getName());
+    countryEntity.setCapital(country.getCapital());
+    countryEntity.setFlag(country.getFlag());
+    countryEntity.setPopulation(country.getPopulation());
+    countryEntity.setRegion(country.getRegion());
+    countryEntity.setSubregion(country.getSubregion());
+
+    countryView.insert(countryEntity);
+  }
+
+  private void storeCountryLanguage(List<Country.Language> languageList, String countryName) {
+    LanguageEntity countryLanguage = new LanguageEntity();
+
+    for (Country.Language language : languageList) {
+
+      countryLanguage.setName(language.getName());
+      countryLanguage.setCountryName(countryName);
+
+      Log.i("--language--", countryLanguage.getName());
+
+      languageView.insert(countryLanguage);
+    }
+
+
   }
 }
