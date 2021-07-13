@@ -40,8 +40,6 @@
     android:orientation="vertical"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     app:reverseLayout="false"
-    tools:listitem="@layout/rv_country">
-
-  </androidx.recyclerview.widget.RecyclerView>
+    tools:listitem="@layout/rv_country"/>
 
 </LinearLayout>

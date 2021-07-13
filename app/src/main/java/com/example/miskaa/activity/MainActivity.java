@@ -1,7 +1,6 @@
 package com.example.miskaa.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -88,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
   private void storeDataInRoom(List<Country> countryList) {
     for (Country country : countryList) {
       storeCountryBasicInformation(country);
+      storeCountryLanguage(country.getLanguages(), country.getName());
+      storeCountryBorders(country.getBorders(), country.getName());
     }
   }
 
@@ -100,29 +101,28 @@ public class MainActivity extends AppCompatActivity {
     countryEntity.setPopulation(country.getPopulation());
     countryEntity.setRegion(country.getRegion());
     countryEntity.setSubregion(country.getSubregion());
-    storeCountryLanguage(country.getLanguages(), country.getName());
-    storeCountryBorders(country.getBorders(), country.getName());
 
     countryView.insert(countryEntity);
   }
 
   private void storeCountryLanguage(List<Country.Language> languageList, String countryName) {
-    LanguageEntity countryLanguage = new LanguageEntity();
 
     for (Country.Language language : languageList) {
+      LanguageEntity countryLanguage = new LanguageEntity();
 
       countryLanguage.setName(language.getName());
       countryLanguage.setCountryName(countryName);
 
-      Log.i("--language--", countryLanguage.getName());
-
       languageView.insert(countryLanguage);
+
     }
   }
 
   private void storeCountryBorders(List<String> bordersList, String countryName) {
-    BordersEntity bordersEntity = new BordersEntity();
+
     for (String borderName : bordersList) {
+      BordersEntity bordersEntity = new BordersEntity();
+
       bordersEntity.setCountryName(countryName);
       bordersEntity.setBorderName(borderName);
 

@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.example.miskaa.room.entity.BordersEntity;
+import com.example.miskaa.table.Country;
 
 import java.util.List;
 
@@ -20,6 +21,9 @@ public interface BorderDao {
 
     @Query("SELECT * FROM borders")
     LiveData<List<BordersEntity>> getAllBorders();
+
+    @Query("SELECT name FROM language where countryName = :countryName LIMIT 1")
+    LiveData<List<Country.Language>> getCountryBorders(String countryName);
 }
 
 

@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.example.miskaa.room.entity.LanguageEntity;
+import com.example.miskaa.table.Country;
 
 import java.util.List;
 
@@ -20,4 +21,7 @@ public interface LanguageDao {
 
     @Query("SELECT * FROM language")
     LiveData<List<LanguageEntity>> getAllLanguagesInfo();
+
+    @Query("SELECT name FROM language where countryName = :countryName LIMIT 1")
+    LiveData<List<Country.Language>> getCountryLanguages(String countryName);
 }

@@ -36,7 +36,6 @@ public class CountryRepository {
     }
 
     private static class InsertAsyncTask extends AsyncTask<CountryEntity,Void,Void> {
-
         private CountryDao countryDao;
 
         private InsertAsyncTask(CountryDao countryDao){  // constructor
